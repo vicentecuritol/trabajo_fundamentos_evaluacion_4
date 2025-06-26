@@ -1,0 +1,104 @@
+print("***** SISTEMA DE PASAJES PASAJEBUS *****")
+
+asientos_vina=[1,2,3,4,5]
+asientos_valpo =[1 2,3,4,5]
+asientos_mendoza= [1 2,3,4, 5]
+
+psj_vina=[]
+psj_valpo=[]
+psj_mendoza= []
+opcion =0
+while opcion != 6:
+    print("1.- Comprar pasaje a Viña del Mar")
+    print("2.- Comprar pasaje a Valparaíso")
+    print("3.- Comprar pasaje a Mendoza (requiere pasaporte)")
+    print("4.- Ver asientos disponibles por destino")
+    print("5.- Ver lista de pasajeros")
+    print("6.- Salir")
+
+    opcion = int(input("Ingrese una opción: "))
+
+    if opcion==1:
+        print("Asientos disponibles:",asientos_vina)
+        rut =input("Ingrese su RUT: ")
+
+        ya_tiene = False
+        for p in
+        psj_vina:
+            if p[0]==rut:
+                ya_tiene = True
+        if ya_tiene:
+            print("ya tiene pasaje para Viña del Mar")
+        else:
+            nombre = input("Ingrese su nombre completo: ")
+            asiento = int(input("Ingrese número de asiento: "))
+            if asiento in asientos_vina:
+            psj_vina.append([rut, nombre, asiento])
+                asientos_vina.remove(asiento)
+                print("pasaje comprado")
+            else:
+                print("Asiento NO disponible.")
+    elif opcion == 2:
+        print("Asientos disponibles:", asientos_valpo)
+        rut = input("Ingrese su RUT: ")
+        ya_tiene = False
+        for p in psj_valpo:
+            if p[0] == rut:
+                ya_tiene = True
+        if ya_tiene:
+            print("Ya tiene pasaje para Valparaíso.")
+        else:
+            nombre = input("Ingrese su nombre completo: ")
+            asiento = int(input("Ingrese número de asiento: "))
+            if asiento in asientos_valpo:
+                psj_valpo.append([rut, nombre, asiento])
+                asientos_valpo.remove(asiento)
+                print("Pasaje comprado.")
+            else:
+                print("Asiento NO disponible.")
+    elif opcion == 3:
+        print("Asientos disponibles:", asientos_mendoza)
+        rut = input("Ingrese su RUT: ")
+
+        ya_tiene = False
+        for p in psj_mendoza:
+            if p[0] == rut:
+                ya_tiene = True
+        if ya_tiene:
+            print("Ya tiene pasaje para Mendoza.")
+        else:
+            tiene_pasaporte = input ("Tiene pasaporte vigente? (si NO): ")
+            if tiene_pasaporte=="si":
+                nombre = input("Ingrese su nombre completo: ")
+                pasaporte = input("Ingrese número de pasaporte: ")
+                asiento = int(input("Ingrese número de asiento: "))
+                if asiento in asientos_mendoza:
+                    psj_mendoza.append( [rut, nombre, asiento, pasaporte ])
+                    asientos_mendoza.remove (asiento)
+                    print("Pasaje comprado.")
+                else:
+                    print("Asiento NO disponible.")
+            else:
+                print("No puede comprar pasaje sin pasaporte.")
+    elif opcion == 4:
+        print("asientos disponibles Viña del Mar:", asientos_vina)
+        print("Asientos disponibles Valparaíso:", asientos_valpo)
+        print("asientos disponibles Mendoza:", asientos_mendoza)
+    elif opcion == 5:
+        print("\nPasajeros Viña del Mar:")
+        for p in
+        psj_vina:
+            print("RUT:",p[0], "-Nombre:", p[1], "- Asiento:", p[2])
+
+        print("\nPasajeros Valparaíso:")
+        for p in psj_valpo:
+            print("RUT:", p[0], "-Nombre:", p[1], "- Asiento:", p[2])
+
+        print("\nPasajeros Mendoza:")
+        for p in psj_mendoza:
+            print("RUT:",p[0], "-Nombre:", p[1], "-Asiento:", p[2], "-Pasaporte:", p[3])
+
+    elif opcion == 6:
+        print("Gracias por usar PasajeBus.")
+    else:
+        print("Opción NO válida.")
